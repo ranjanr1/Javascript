@@ -3,11 +3,11 @@ function startGame() {
     console.log("Start the game");
     //alert('Hi');
 }
-// const person = {
-//     name: 'Rohit',
-//     greet: function greet() {
-//         console.log('Hello There');
-//     }
-// }
-console.log(typeof startGame)
-startGameBtn.addEventListener('click',startGame);
+const person = {
+    name: 'Rohit',
+    greet: function greet() {
+        console.dir(typeof startGame)
+    }
+}
+
+startGameBtn.addEventListener('click',person.greet);
