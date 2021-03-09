@@ -1,4 +1,7 @@
 const startGameBtn = document.getElementById('start-game-btn'); 
+const AddGameBtn = document.getElementById('Add-game-btn'); 
+const SubtractGameBtn = document.getElementById('Subtract-game-btn'); 
+
 let gameIsRunning =false;
 const ROCK = 'ROCK';
 const PAPER = 'PAPER';
@@ -35,7 +38,7 @@ const getWinner = (cChoice,pChoice)=> {
     cChoice === SCISSORS && pChoice ===ROCK)
     return RESULT_PWIN;
   else
-    return RESULT_CWIN; 
+      return RESULT_CWIN; 
 }
 
 const startGame = () =>{
@@ -52,3 +55,28 @@ console.log(`Winner is ${winner}`);
 gameIsRunning = false;
 }
 startGameBtn.addEventListener('click', startGame);
+
+const sumUp = (resultHandler,...numbers)=>{
+  let sum = 0;
+  for (const num of numbers){
+    sum+= num;
+  }
+  resultHandler(sum,'Add');  
+}
+const subtractUp = (resultHandler,...numbers)=>{
+  let sum = 0;
+  for(const num of numbers){
+    sum -= num;
+  }
+  resultHandler(sum,'Subtract');
+}
+const showResult = (result,operation)=>{
+  alert(`The result after ${operation} all numbers is: ${result}`);
+}
+AddGameBtn.addEventListener('click',sumUp.bind(this,showResult,1,2,10,4));
+SubtractGameBtn.addEventListener('click',subtractUp.bind(this,showResult,10,2));
+
+
+
+
+
